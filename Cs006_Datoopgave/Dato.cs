@@ -10,14 +10,15 @@ namespace Cs006_Datoopgave
     {
         private int datoen;
 
-        public Dato(int aar, int maaned, int dag)
+        public Dato(string aar, string maaned, string dag)
         {
-            datoen = aar + maaned + dag;
+            string strDato = aar + maaned + dag;
+            datoen = int.Parse(strDato);
         }
 
         public int GetAar()
         {
-            int aar = this.datoen;
+            int aar = int.Parse(datoen.ToString().Substring(0,4));
             return aar;
         }
     }
