@@ -47,6 +47,18 @@ namespace Cs006_Datoopgave
                         Console.ReadKey();
                         break;
 
+                    case 3:
+                        Console.WriteLine("\nMåneden er: {0}", dato.GetMaaned());
+                        Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
+                        Console.ReadKey();
+                        break;
+
+                    case 4:
+                        Console.WriteLine("\nDagen er: {0}", dato.GetDag());
+                        Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
+                        Console.ReadKey();
+                        break;
+
                     case -1:
                         Console.WriteLine("Indtast venligst et tal");
                         Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
@@ -60,6 +72,18 @@ namespace Cs006_Datoopgave
                         break;
                 }
             } while (keepRunning);
+        }
+
+        private void ShowMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Dato program");
+            Console.WriteLine("0. Afslut program");
+            Console.WriteLine("1. Opret dato");
+            Console.WriteLine("2. Hent år");
+            Console.WriteLine("3. Hent måned");
+            Console.WriteLine("4. Hent dag");
+            Console.Write("\nDit valg: ");
         }
 
         private int ChooseAction()
@@ -85,21 +109,15 @@ namespace Cs006_Datoopgave
             string aar = Console.ReadLine();
             Console.Write("\nMåned: ");
             string maaned = Console.ReadLine();
+            if (maaned.Length != 2)
+                maaned = 0 + maaned;
             Console.Write("\nDag: ");
             string dag = Console.ReadLine();
+            if (dag.Length != 2)
+                dag = 0 + dag;
 
             Dato dato = new Dato(aar, maaned, dag);
             this.dato = dato;
-        }
-
-        private void ShowMenu()
-        {
-            Console.Clear();
-            Console.WriteLine("Dato program");
-            Console.WriteLine("0. Afslut program");
-            Console.WriteLine("1. Opret dato");
-            Console.WriteLine("2. Hent år");
-            Console.Write("\nDit valg: ");
         }
     }
 }

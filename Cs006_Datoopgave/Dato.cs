@@ -21,5 +21,17 @@ namespace Cs006_Datoopgave
             int aar = int.Parse(datoen.ToString().Substring(0,4));
             return aar;
         }
+
+        public int GetMaaned()
+        {
+            int maaned = int.Parse(datoen.ToString().Substring(4, 2));
+            return maaned;
+        }
+
+        public int GetDag()
+        {
+            int dag = int.Parse(datoen.ToString().Substring(6, 2));
+            return dag;
+        }
     }
 }
