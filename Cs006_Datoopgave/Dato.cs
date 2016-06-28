@@ -33,5 +33,28 @@ namespace Cs006_Datoopgave
             int dag = int.Parse(datoen.ToString().Substring(6, 2));
             return dag;
         }
+
+        public void SetAar(int aar)
+        {
+            datoen = int.Parse(aar.ToString() + datoen.ToString().Substring(4, 4));
+        }
+
+        public void SetMaaned(int maaned)
+        {
+            string maanedStr = maaned.ToString();
+            if (maanedStr.Length != 2)
+                maanedStr = 0 + maanedStr;
+
+            datoen = int.Parse(datoen.ToString().Substring(0, 4) + maanedStr + datoen.ToString().Substring(6, 2));
+        }
+
+        public void SetDag(int dag)
+        {
+            string dagStr = dag.ToString();
+            if (dagStr.Length != 2)
+                dagStr = 0 + dagStr;
+
+            datoen = int.Parse(datoen.ToString().Substring(0, 6) + dagStr);
+        }
     }
 }

@@ -59,6 +59,27 @@ namespace Cs006_Datoopgave
                         Console.ReadKey();
                         break;
 
+                    case 5:
+                        SetAar();
+                        Console.WriteLine("Året er skiftet til: {0}", dato.GetAar());
+                        Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
+                        Console.ReadKey();
+                        break;
+
+                    case 6:
+                        SetMaaned();
+                        Console.WriteLine("Måneden er skiftet til: {0}", dato.GetMaaned());
+                        Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
+                        Console.ReadKey();
+                        break;
+
+                    case 7:
+                        SetDag();
+                        Console.WriteLine("Dagen er skiftet til: {0}", dato.GetDag());
+                        Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
+                        Console.ReadKey();
+                        break;
+
                     case -1:
                         Console.WriteLine("Indtast venligst et tal");
                         Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
@@ -83,6 +104,9 @@ namespace Cs006_Datoopgave
             Console.WriteLine("2. Hent år");
             Console.WriteLine("3. Hent måned");
             Console.WriteLine("4. Hent dag");
+            Console.WriteLine("5. Skift år");
+            Console.WriteLine("6. Skift måned");
+            Console.WriteLine("7. Skift dag");
             Console.Write("\nDit valg: ");
         }
 
@@ -107,10 +131,12 @@ namespace Cs006_Datoopgave
             Console.WriteLine("Opret en dato");
             Console.Write("År: ");
             string aar = Console.ReadLine();
+
             Console.Write("\nMåned: ");
             string maaned = Console.ReadLine();
             if (maaned.Length != 2)
                 maaned = 0 + maaned;
+
             Console.Write("\nDag: ");
             string dag = Console.ReadLine();
             if (dag.Length != 2)
@@ -118,6 +144,30 @@ namespace Cs006_Datoopgave
 
             Dato dato = new Dato(aar, maaned, dag);
             this.dato = dato;
+        }
+
+        private void SetAar()
+        {
+            Console.Clear();
+            Console.Write("Skift år til: ");
+            int aar = int.Parse(Console.ReadLine());
+            dato.SetAar(aar);
+        }
+
+        private void SetMaaned()
+        {
+            Console.Clear();
+            Console.Write("Skift måned til: ");
+            int maaned = int.Parse(Console.ReadLine());
+            dato.SetMaaned(maaned);
+        }
+
+        private void SetDag()
+        {
+            Console.Clear();
+            Console.Write("Skift dag til: ");
+            int dag = int.Parse(Console.ReadLine());
+            dato.SetDag(dag);
         }
     }
 }
