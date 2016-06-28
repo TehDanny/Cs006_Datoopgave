@@ -92,6 +92,12 @@ namespace Cs006_Datoopgave
                         Console.ReadKey();
                         break;
 
+                    case 10:
+                        Console.WriteLine("\nKvartal: {0}", dato.GetKvartal());
+                        Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
+                        Console.ReadKey();
+                        break;
+
                     case -1:
                         Console.WriteLine("Indtast venligst et tal");
                         Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
@@ -121,6 +127,7 @@ namespace Cs006_Datoopgave
             Console.WriteLine("7. Skift dag");
             Console.WriteLine("8. Hent dato [AAAA-MM-DD]");
             Console.WriteLine("9. Hent dato [DD/MM/AA]");
+            Console.WriteLine("10. Hent kvartal");
             Console.Write("\nDit valg: ");
         }
 

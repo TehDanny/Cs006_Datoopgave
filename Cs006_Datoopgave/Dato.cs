@@ -71,5 +71,19 @@ namespace Cs006_Datoopgave
             return dato;
         }
 
+        internal int GetKvartal()
+        {
+            int kvartal = 0;
+            int maaned = int.Parse(datoen.ToString().Substring(4, 2));
+            if (maaned < 4)
+                kvartal = 1;
+            else if (maaned > 3 && maaned < 7)
+                kvartal = 2;
+            else if (maaned > 6 && maaned < 10)
+                kvartal = 3;
+            else if (maaned > 9)
+                kvartal = 4;
+            return kvartal;
+        }
     }
 }
