@@ -56,5 +56,20 @@ namespace Cs006_Datoopgave
 
             datoen = int.Parse(datoen.ToString().Substring(0, 6) + dagStr);
         }
+
+        public string GetDatoStringAMD()
+        {
+            string dato = datoen.ToString().Substring(0,4)+"-"+ datoen.ToString().Substring(4, 2) + "-" + datoen.ToString().Substring(6, 2);
+
+            return dato;
+        }
+
+        public string GetDatoStringDMA()
+        {
+            string dato = datoen.ToString().Substring(6,2)+"/"+datoen.ToString().Substring(4,2)+"/"+datoen.ToString().Substring(2,2);
+
+            return dato;
+        }
+
     }
 }

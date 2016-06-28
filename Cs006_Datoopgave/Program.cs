@@ -61,21 +61,33 @@ namespace Cs006_Datoopgave
 
                     case 5:
                         SetAar();
-                        Console.WriteLine("Året er skiftet til: {0}", dato.GetAar());
+                        Console.WriteLine("\nÅret er skiftet til: {0}", dato.GetAar());
                         Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
                         Console.ReadKey();
                         break;
 
                     case 6:
                         SetMaaned();
-                        Console.WriteLine("Måneden er skiftet til: {0}", dato.GetMaaned());
+                        Console.WriteLine("\nMåneden er skiftet til: {0}", dato.GetMaaned());
                         Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
                         Console.ReadKey();
                         break;
 
                     case 7:
                         SetDag();
-                        Console.WriteLine("Dagen er skiftet til: {0}", dato.GetDag());
+                        Console.WriteLine("\nDagen er skiftet til: {0}", dato.GetDag());
+                        Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
+                        Console.ReadKey();
+                        break;
+
+                    case 8:
+                        Console.WriteLine("\nDatoen er: {0}", dato.GetDatoStringAMD());
+                        Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
+                        Console.ReadKey();
+                        break;
+
+                    case 9:
+                        Console.WriteLine("\nDatoen er: {0}", dato.GetDatoStringDMA());
                         Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
                         Console.ReadKey();
                         break;
@@ -107,6 +119,8 @@ namespace Cs006_Datoopgave
             Console.WriteLine("5. Skift år");
             Console.WriteLine("6. Skift måned");
             Console.WriteLine("7. Skift dag");
+            Console.WriteLine("8. Hent dato [AAAA-MM-DD]");
+            Console.WriteLine("9. Hent dato [DD/MM/AA]");
             Console.Write("\nDit valg: ");
         }
 
