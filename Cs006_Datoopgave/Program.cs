@@ -98,6 +98,18 @@ namespace Cs006_Datoopgave
                         Console.ReadKey();
                         break;
 
+                    case 11:
+                        Console.WriteLine("\nMåned i tekstformat: {0}", dato.GetMaanedTxt());
+                        Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
+                        Console.ReadKey();
+                        break;
+
+                    case 12:
+                        Console.WriteLine("\nKvartal i tekstformat: {0}", dato.GetKvartalTxt());
+                        Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
+                        Console.ReadKey();
+                        break;
+
                     case -1:
                         Console.WriteLine("Indtast venligst et tal");
                         Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
@@ -128,6 +140,8 @@ namespace Cs006_Datoopgave
             Console.WriteLine("8. Hent dato [AAAA-MM-DD]");
             Console.WriteLine("9. Hent dato [DD/MM/AA]");
             Console.WriteLine("10. Hent kvartal");
+            Console.WriteLine("11. Hent måned i tekst-format");
+            Console.WriteLine("12. Hent kvartal i tekst-format");
             Console.Write("\nDit valg: ");
         }
 

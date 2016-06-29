@@ -74,7 +74,7 @@ namespace Cs006_Datoopgave
         internal int GetKvartal()
         {
             int kvartal = 0;
-            int maaned = int.Parse(datoen.ToString().Substring(4, 2));
+            int maaned = GetMaaned();
             if (maaned < 4)
                 kvartal = 1;
             else if (maaned > 3 && maaned < 7)
@@ -85,5 +85,119 @@ namespace Cs006_Datoopgave
                 kvartal = 4;
             return kvartal;
         }
+
+        public string GetMaanedTxt()
+        {
+            int maaned = GetMaaned();
+            string maanedTxt = "";
+            switch (maaned)
+            {
+                case 1:
+                    maanedTxt = "Januar";
+                    break;
+
+                case 2:
+                    maanedTxt = "Februar";
+                    break;
+
+                case 3:
+                    maanedTxt = "Marts";
+                    break;
+
+                case 4:
+                    maanedTxt = "April";
+                    break;
+
+                case 5:
+                    maanedTxt = "Maj";
+                    break;
+
+                case 6:
+                    maanedTxt = "Juni";
+                    break;
+
+                case 7:
+                    maanedTxt = "Juli";
+                    break;
+
+                case 8:
+                    maanedTxt = "August";
+                    break;
+
+                case 9:
+                    maanedTxt = "September";
+                    break;
+
+                case 10:
+                    maanedTxt = "Oktober";
+                    break;
+
+                case 11:
+                    maanedTxt = "November";
+                    break;
+
+                case 12:
+                    maanedTxt = "December";
+                    break;
+
+                default:
+                    break;
+            }
+            return maanedTxt;
+        }
+
+        public string GetKvartalTxt()
+        {
+            int maaned = GetMaaned();
+            string kvartalTxt = "";
+            switch (maaned)
+            {
+                case 1:
+                case 2:
+                case 3:
+                    kvartalTxt = "Første kvartal";
+                    break;
+
+                case 4:
+                case 5:
+                case 6:
+                    kvartalTxt = "Andet kvartal";
+                    break;
+
+                case 7:
+                case 8:
+                case 9:
+                    kvartalTxt = "Tredje kvartal";
+                    break;
+
+                case 10:
+                case 11:
+                case 12:
+                    kvartalTxt = "Fjerde kvartal";
+                    break;
+
+                default:
+                    break;
+            }
+            return kvartalTxt;
+        }
+
+        /*
+        private enum Maaneder
+        {
+            Janaur = 1,
+            Februar,
+            Marts,
+            April,
+            Maj,
+            Juni,
+            Juli,
+            August,
+            September,
+            Oktober,
+            November,
+            December
+        }
+        */
     }
 }
