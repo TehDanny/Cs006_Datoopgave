@@ -199,5 +199,144 @@ namespace Cs006_Datoopgave
             December
         }
         */
+
+        public void MoveToNextDate()
+        {
+            int day = GetDag();
+            int month = GetMaaned();
+            int year = GetAar();
+            int daysOnCurrentMonth = GetDaysOnMonth(month, year);
+
+            if (day < daysOnCurrentMonth)
+                day++;
+            else if (day == daysOnCurrentMonth)
+            {
+                day = 1;
+                if (month < 12)
+                    month++;
+                else if (month == 12)
+                {
+                    month = 1;
+                    year++;
+                }
+            }
+
+            SetDag(day);
+            SetMaaned(month);
+            SetAar(year);
+        }
+
+        public void MoveToPrevDate()
+        {
+            int day = GetDag();
+            int month = GetMaaned();
+            int year = GetAar();
+            int daysOnPreviousMonth = 0;
+
+            if (month > 1)
+                daysOnPreviousMonth = GetDaysOnMonth(month-1, year);
+            else if (month == 1)
+                daysOnPreviousMonth = GetDaysOnMonth(12, year);
+
+            if (day > 1)
+                day--;
+            else if (day == 1)
+            {
+                day = daysOnPreviousMonth;
+                if (month > 1)
+                {
+                    month--;
+                }
+                else if (month == 1)
+                {
+                    month = 12;
+                    year--;
+                }
+            }
+
+            SetDag(day);
+            SetMaaned(month);
+            SetAar(year);
+        }
+
+        private int GetDaysOnMonth(int month, int year)
+        {
+            int daysOnMonth = 0;
+            switch (month)
+            {
+                case 1:
+                    daysOnMonth = 31;
+                    break;
+
+                case 2:
+                    if (year % 4 == 0 && year % 400 != 0)
+                        daysOnMonth = 29;
+                    else
+                        daysOnMonth = 28;
+                    break;
+
+                case 3:
+                    daysOnMonth = 31;
+                    break;
+
+                case 4:
+                    daysOnMonth = 30;
+                    break;
+
+                case 5:
+                    daysOnMonth = 31;
+                    break;
+
+                case 6:
+                    daysOnMonth = 30;
+                    break;
+
+                case 7:
+                    daysOnMonth = 31;
+                    break;
+
+                case 8:
+                    daysOnMonth = 31;
+                    break;
+
+                case 9:
+                    daysOnMonth = 30;
+                    break;
+
+                case 10:
+                    daysOnMonth = 31;
+                    break;
+
+                case 11:
+                    daysOnMonth = 30;
+                    break;
+
+                case 12:
+                    daysOnMonth = 31;
+                    break;
+
+                default:
+                    break;
+            }
+            return daysOnMonth;
+        }
+
+        public void MoveDays(int days)
+        {
+            if (days < 0)
+            {
+                for (int i = 0; i >= days; i++)
+                {
+                    MoveToPrevDate();
+                }
+            }
+            else if (days > 0)
+            {
+                for (int i = 0; i <= days; i++)
+                {
+                    MoveToNextDate();
+                }
+            }
+        }
     }
 }
