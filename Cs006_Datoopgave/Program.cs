@@ -124,6 +124,14 @@ namespace Cs006_Datoopgave
                         Console.ReadKey();
                         break;
 
+                    case 15:
+                        int days = QueryAmountOfDays();
+                        dato.MoveDays(days);
+                        Console.WriteLine("\nDatoen er: {0}", dato.GetDatoStringAMD());
+                        Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
+                        Console.ReadKey();
+                        break;
+
                     case -1:
                         Console.WriteLine("Indtast venligst et tal");
                         Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
@@ -158,6 +166,7 @@ namespace Cs006_Datoopgave
             Console.WriteLine("12. Hent kvartal i tekst-format");
             Console.WriteLine("13. Flyt dato én dag frem");
             Console.WriteLine("14. Flyt dato én dag tilbage");
+            Console.WriteLine("15. Flyt dato et antal dage frem eller tilbage");
             Console.Write("\nDit valg: ");
         }
 
@@ -219,6 +228,15 @@ namespace Cs006_Datoopgave
             Console.Write("Skift dag til: ");
             int dag = int.Parse(Console.ReadLine());
             dato.SetDag(dag);
+        }
+
+        private int QueryAmountOfDays()
+        {
+            int days;
+            Console.Clear();
+            Console.Write("Hvor mange dage vil du flytte datoen? (negativt tal for at gå antal dage tilbage)");
+            days = int.Parse(Console.ReadLine());
+            return days;
         }
     }
 }

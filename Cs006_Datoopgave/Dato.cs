@@ -325,14 +325,14 @@ namespace Cs006_Datoopgave
         {
             if (days < 0)
             {
-                for (int i = 0; i >= days; i++)
+                for (int i = 0; i >= days+1; i--)
                 {
                     MoveToPrevDate();
                 }
             }
             else if (days > 0)
             {
-                for (int i = 0; i <= days; i++)
+                for (int i = 0; i <= days-1; i++)
                 {
                     MoveToNextDate();
                 }
