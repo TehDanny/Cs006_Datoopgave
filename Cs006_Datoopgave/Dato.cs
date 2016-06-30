@@ -338,5 +338,22 @@ namespace Cs006_Datoopgave
                 }
             }
         }
+
+        public int GetDagnr()
+        {
+            int daynr = 0;
+            int day = GetDag();
+            int month = GetMaaned();
+            int year = GetAar();
+
+            for (int i = 1; i < month; i++)
+            {
+                daynr += GetDaysOnMonth(i, year);
+            }
+
+            daynr += day;
+
+            return daynr;
+        }
     }
 }
