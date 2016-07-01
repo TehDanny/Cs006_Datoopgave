@@ -355,5 +355,24 @@ namespace Cs006_Datoopgave
 
             return daynr;
         }
+
+        public void SetDagnr(int year, int daynr)
+        {
+            int day = 0;
+            int month = 1;
+            int dayCounter = 0;
+
+            while (dayCounter < daynr && daynr - dayCounter > GetDaysOnMonth(month, year))
+            {
+                dayCounter += GetDaysOnMonth(month, year);
+                month++;
+            }
+
+            day = daynr - dayCounter;
+
+            SetAar(year);
+            SetMaaned(month);
+            SetDag(day);
+        }
     }
 }

@@ -138,6 +138,15 @@ namespace Cs006_Datoopgave
                         Console.ReadKey();
                         break;
 
+                    case 17:
+                        int year = QueryYear();
+                        int daynr = QueryDaynr();
+                        dato.SetDagnr(year, daynr);
+                        Console.WriteLine("\nDatoen er: {0}", dato.GetDatoStringAMD());
+                        Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
+                        Console.ReadKey();
+                        break;
+
                     case -1:
                         Console.WriteLine("Indtast venligst et tal");
                         Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
@@ -174,6 +183,7 @@ namespace Cs006_Datoopgave
             Console.WriteLine("14. Flyt dato én dag tilbage");
             Console.WriteLine("15. Flyt dato et antal dage frem eller tilbage");
             Console.WriteLine("16. Hent dagnr på året");
+            Console.WriteLine("17. Skift dato til valgt årstal og dagnr på året");
             Console.Write("\nDit valg: ");
         }
 
@@ -244,6 +254,22 @@ namespace Cs006_Datoopgave
             Console.Write("Hvor mange dage vil du flytte datoen? (negativt tal for at gå antal dage tilbage)");
             days = int.Parse(Console.ReadLine());
             return days;
+        }
+
+        private int QueryYear()
+        {
+            Console.Clear();
+            Console.Write("Vælg et år: ");
+            int year = int.Parse(Console.ReadLine());
+            return year;
+        }
+
+        private int QueryDaynr()
+        {
+            Console.Clear();
+            Console.Write("Vælg et dagnr på året: ");
+            int daynr = int.Parse(Console.ReadLine());
+            return daynr;
         }
     }
 }
