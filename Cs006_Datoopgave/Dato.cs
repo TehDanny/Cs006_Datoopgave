@@ -374,5 +374,20 @@ namespace Cs006_Datoopgave
             SetMaaned(month);
             SetDag(day);
         }
+
+        public int GetAbsDagnr()
+        {
+            int daynr = 0;
+            int year = GetAar();
+            int month = GetMaaned();
+            int day = GetDag();
+
+            while (true)
+            {
+                daynr += GetDaysOnMonth();
+            }
+
+            return daynr;
+        }
     }
 }

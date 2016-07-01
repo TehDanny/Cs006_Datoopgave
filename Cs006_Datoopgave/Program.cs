@@ -147,6 +147,12 @@ namespace Cs006_Datoopgave
                         Console.ReadKey();
                         break;
 
+                    case 18:
+                        Console.WriteLine("\nDagnr fra år 0 er: {0}", dato.GetAbsDagnr());
+                        Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
+                        Console.ReadKey();
+                        break;
+
                     case -1:
                         Console.WriteLine("Indtast venligst et tal");
                         Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
@@ -184,6 +190,7 @@ namespace Cs006_Datoopgave
             Console.WriteLine("15. Flyt dato et antal dage frem eller tilbage");
             Console.WriteLine("16. Hent dagnr på året");
             Console.WriteLine("17. Skift dato til valgt årstal og dagnr på året");
+            Console.WriteLine("18. Hent dagnr fra år 0");
             Console.Write("\nDit valg: ");
         }
 
