@@ -445,7 +445,7 @@ namespace Cs006_Datoopgave
                     keepRunning = false;
             }
 
-            julianDayNumber += day - 1;
+            julianDayNumber += day;
             
             return julianDayNumber;
         }
