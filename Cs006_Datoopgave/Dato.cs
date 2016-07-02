@@ -268,11 +268,13 @@ namespace Cs006_Datoopgave
                     daysOnMonth = 31;
                     break;
 
-                case 2:
-                    if (year % 4 == 0 && year % 400 != 0)
+                case 2: // https://en.wikipedia.org/wiki/Leap_year
+                    if (year % 4 != 0 && year % 400 != 0)
+                        daysOnMonth = 28;
+                    else if (year % 100 != 0)
                         daysOnMonth = 29;
                     else
-                        daysOnMonth = 28;
+                        daysOnMonth = 29;
                     break;
 
                 case 3:
@@ -375,6 +377,7 @@ namespace Cs006_Datoopgave
             SetDag(day);
         }
 
+        /*
         public int GetAbsDagnr()
         {
             int daynr = 0;
@@ -382,12 +385,69 @@ namespace Cs006_Datoopgave
             int month = GetMaaned();
             int day = GetDag();
 
-            while (true)
+            while (daynr - GetDaysOnMonth())
             {
                 daynr += GetDaysOnMonth();
             }
 
             return daynr;
+        }
+        */
+
+        public int GetUgedag()
+        {
+            int ugedag = GetJulianDayNumber() % 7 + 1;
+            return ugedag;
+        }
+
+        //  the Julian day number of 1 July 2016 is 2457570. Calculating (2457570 mod 7 + 1) yields 4, corresponding to Friday.
+        // https://en.wikipedia.org/wiki/Week
+
+        enum Weekdays
+        {
+            Mandag =1,
+            Tirsdag,
+            Onsdag,
+            Torsdag,
+            Fredag,
+            Lørdag,
+            Søndag
+        }
+
+        public int GetUgenr()
+        {
+            int ugenr = 0;
+            return ugenr;
+        }
+
+        // Julian calendar starts at January 1, 4713 BC
+        public int GetJulianDayNumber()
+        {
+            int julianDayNumber = 0;
+            int year = GetAar();
+            int month = GetMaaned();
+            int day = GetDag();
+            int currentYear = -4713;
+            int currentMonth = 1;
+            bool keepRunning = true;
+
+            while (keepRunning)
+            {
+                julianDayNumber += GetDaysOnMonth(currentMonth, currentYear);
+                if (currentMonth <12)
+                    currentMonth++;
+                else if (currentMonth == 12)
+                {
+                    currentMonth = 1;
+                    currentYear++;
+                }
+                if (currentYear == year && currentMonth == month)
+                    keepRunning = false;
+            }
+
+            julianDayNumber += day - 1;
+            
+            return julianDayNumber;
         }
     }
 }

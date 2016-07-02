@@ -147,8 +147,22 @@ namespace Cs006_Datoopgave
                         Console.ReadKey();
                         break;
 
-                    case 18:
-                        Console.WriteLine("\nDagnr fra år 0 er: {0}", dato.GetAbsDagnr());
+                    /*
+                case 18:
+                    Console.WriteLine("\nDagnr fra år 0 er: {0}", dato.GetAbsDagnr());
+                    Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
+                    Console.ReadKey();
+                    break;
+                    */
+
+                    case 19:
+                        Console.WriteLine("Det Julianske dags nummer er {0}", dato.GetJulianDayNumber());
+                        Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
+                        Console.ReadKey();
+                        break;
+
+                    case 20:
+                        Console.WriteLine("Dagen på ugen er {0}", dato.GetUgedag());
                         Console.WriteLine("Tryk på en vilkårlig tast for at fortsætte...");
                         Console.ReadKey();
                         break;
@@ -190,7 +204,9 @@ namespace Cs006_Datoopgave
             Console.WriteLine("15. Flyt dato et antal dage frem eller tilbage");
             Console.WriteLine("16. Hent dagnr på året");
             Console.WriteLine("17. Skift dato til valgt årstal og dagnr på året");
-            Console.WriteLine("18. Hent dagnr fra år 0");
+            //Console.WriteLine("18. Hent dagnr fra år 0");
+            Console.WriteLine("19. Hent det Julianske dags nummer");
+            Console.WriteLine("20. Hent dag på ugen");
             Console.Write("\nDit valg: ");
         }
 
